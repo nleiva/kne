@@ -1,0 +1,253 @@
+name: "multivendor"
+nodes: {
+  name: "ceos"
+  vendor: ARISTA
+  config: {
+    file: "ceos.cfg"
+  }
+}
+nodes: {
+  name: "cptx"
+  vendor: JUNIPER
+  model: "cptx"
+    os: "evo"
+  config: {
+    file: "cptx.cfg"
+  }
+  interfaces: {
+    key: "eth5"
+    value: {
+      name: "et-0/0/0"
+    }
+  }
+  interfaces: {
+    key: "eth6"
+    value: {
+      name: "et-0/0/1"
+    }
+  }
+  interfaces: {
+    key: "eth7"
+    value: {
+      name: "et-0/0/2"
+    }
+  }
+  interfaces: {
+    key: "eth8"
+    value: {
+      name: "et-0/0/3"
+    }
+  }
+  interfaces: {
+    key: "eth9"
+    value: {
+      name: "et-0/0/4"
+    }
+  }
+  interfaces: {
+    key: "eth10"
+    value: {
+      name: "et-0/0/5"
+    }
+  }
+  interfaces: {
+    key: "eth12"
+    value: {
+      name: "et-0/0/7"
+    }
+  }
+  interfaces: {
+    key: "eth13"
+    value: {
+      name: "et-0/0/8"
+    }
+  }
+  interfaces: {
+    key: "eth14"
+    value: {
+      name: "et-0/0/9"
+    }
+  }
+}
+nodes: {
+  name: "srl"
+  vendor: NOKIA
+  config: {
+    file: "srlinux.cfg"
+  }
+  interfaces: {
+      key: "e1-1"
+      value: {
+          name: "ethernet-1/1"
+      }
+  }
+  interfaces: {
+      key: "e1-2"
+      value: {
+          name: "ethernet-1/2"
+      }
+  }
+  interfaces: {
+      key: "e1-3"
+      value: {
+          name: "ethernet-1/3"
+      }
+  }
+  interfaces: {
+      key: "e1-4"
+      value: {
+          name: "ethernet-1/4"
+      }
+  }
+  interfaces: {
+      key: "e1-5"
+      value: {
+          name: "ethernet-1/5"
+      }
+  }
+  interfaces: {
+      key: "e1-6"
+      value: {
+          name: "ethernet-1/6"
+      }
+  }
+  interfaces: {
+      key: "e1-7"
+      value: {
+          name: "ethernet-1/7"
+      }
+  }
+  interfaces: {
+      key: "e1-8"
+      value: {
+          name: "ethernet-1/8"
+      }
+  }
+  interfaces: {
+      key: "e1-9"
+      value: {
+          name: "ethernet-1/9"
+      }
+  }     
+}
+nodes: {
+  name: "xrd"
+  vendor: CISCO
+  config: {
+    file: "xrd.cfg"
+  }
+}
+# ceos - xrd
+links: {
+  a_node: "ceos"
+  a_int: "eth1"
+  z_node: "xrd"
+  z_int: "eth1"
+}
+links: {
+  a_node: "ceos"
+  a_int: "eth2"
+  z_node: "xrd"
+  z_int: "eth2"
+}
+links: {
+  a_node: "ceos"
+  a_int: "eth3"
+  z_node: "xrd"
+  z_int: "eth3"
+}
+# ceos - cptx
+links: {
+  a_node: "ceos"
+  a_int: "eth4"
+  z_node: "cptx"
+  z_int: "eth5"
+}
+links: {
+  a_node: "ceos"
+  a_int: "eth5"
+  z_node: "cptx"
+  z_int: "eth6"
+}
+links: {
+  a_node: "ceos"
+  a_int: "eth6"
+  z_node: "cptx"
+  z_int: "eth7"
+}
+# xrd - cptx
+links: {
+  a_node: "xrd"
+  a_int: "eth4"
+  z_node: "cptx"
+  z_int: "eth8"
+}
+links: {
+  a_node: "xrd"
+  a_int: "eth5"
+  z_node: "cptx"
+  z_int: "eth9"
+}
+links: {
+  a_node: "xrd"
+  a_int: "eth6"
+  z_node: "cptx"
+  z_int: "eth10"
+}
+# srl - ceos
+links: {
+  a_node: "srl"
+  a_int: "e1-1"
+  z_node: "ceos"
+  z_int: "eth7"
+}
+links: {
+  a_node: "srl"
+  a_int: "e1-2"
+  z_node: "ceos"
+  z_int: "eth8"
+}
+links: {
+  a_node: "srl"
+  a_int: "e1-3"
+  z_node: "ceos"
+  z_int: "eth9"
+}
+# srl - xrd
+links: {
+  a_node: "srl"
+  a_int: "e1-4"
+  z_node: "xrd"
+  z_int: "eth7"
+}
+links: {
+  a_node: "srl"
+  a_int: "e1-5"
+  z_node: "xrd"
+  z_int: "eth8"
+}
+links: {
+  a_node: "srl"
+  a_int: "e1-6"
+  z_node: "xrd"
+  z_int: "eth9"
+}
+# srl - cptx
+links: {
+  a_node: "srl"
+  a_int: "e1-7"
+  z_node: "cptx"
+  z_int: "eth12"
+}
+links: {
+  a_node: "srl"
+  a_int: "e1-8"
+  z_node: "cptx"
+  z_int: "eth13"
+}
+links: {
+  a_node: "srl"
+  a_int: "e1-9"
+  z_node: "cptx"
+  z_int: "eth14"
+}
