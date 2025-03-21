@@ -9,8 +9,8 @@ $ kne deploy kne/deploy/kne/external-multinode.yaml
 I0306 17:50:32.420836  449937 deploy.go:195] Deploying cluster...
 I0306 17:50:32.421104  449937 deploy.go:381] Deploy is a no-op for the external cluster type
 I0306 17:50:32.421118  449937 deploy.go:199] Cluster deployed
-I0306 17:50:32.475856  449937 run.go:26] (kubectl): Kubernetes control plane is running at https://cto-security-kaas-kne-controllers.kaas-pw1.dev.bloomberg.com:8443
-I0306 17:50:32.475883  449937 run.go:26] (kubectl): CoreDNS is running at https://cto-security-kaas-kne-controllers.kaas-pw1.dev.bloomberg.com:8443/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+I0306 17:50:32.475856  449937 run.go:26] (kubectl): Kubernetes control plane is running at https://cto.bloomberg.com:8443
+I0306 17:50:32.475883  449937 run.go:26] (kubectl): CoreDNS is running at https://cto.bloomberg.com:8443/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
 I0306 17:50:32.475891  449937 run.go:26] (kubectl): To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
 I0306 17:50:36.754937  449937 deploy.go:1348] Waiting on deployment "metallb-system" to be healthy
 I0306 17:50:52.641096  449937 deploy.go:1375] Deployment "metallb-system" healthy
