@@ -1,0 +1,76 @@
+name: "two-vendors"
+nodes: {
+  name: "cptx"
+  vendor: JUNIPER
+  model: "cptx"
+    os: "evo"
+  config: {
+    file: "cptx.cfg"
+    image: "artprod.dev.bloomberg.com/bb-cto/nleiva/cptx:23.2R2.11"
+    init_image: "artprod.dev.bloomberg.com/bb-cto/nleiva/kne/networkop/init-wait:latest"
+  }
+  interfaces: {
+    key: "eth12"
+    value: {
+      name: "et-0/0/7"
+    }
+  }
+  interfaces: {
+    key: "eth13"
+    value: {
+      name: "et-0/0/8"
+    }
+  }
+  interfaces: {
+    key: "eth14"
+    value: {
+      name: "et-0/0/9"
+    }
+  }
+}
+nodes: {
+  name: "srl"
+  vendor: NOKIA
+  config: {
+    init_image: "artprod.dev.bloomberg.com/bb-cto/nleiva/kne/srl-labs/init-wait:latest"
+    image: "artprod.dev.bloomberg.com/bb-cto/nleiva/srlinux:latest"
+    file: "srlinux.cfg"
+  }
+  interfaces: {
+      key: "e1-7"
+      value: {
+          name: "ethernet-1/7"
+      }
+  }
+  interfaces: {
+      key: "e1-8"
+      value: {
+          name: "ethernet-1/8"
+      }
+  }
+  interfaces: {
+      key: "e1-9"
+      value: {
+          name: "ethernet-1/9"
+      }
+  }     
+}
+# srl - cptx
+links: {
+  a_node: "srl"
+  a_int: "e1-7"
+  z_node: "cptx"
+  z_int: "eth12"
+}
+links: {
+  a_node: "srl"
+  a_int: "e1-8"
+  z_node: "cptx"
+  z_int: "eth13"
+}
+links: {
+  a_node: "srl"
+  a_int: "e1-9"
+  z_node: "cptx"
+  z_int: "eth14"
+}

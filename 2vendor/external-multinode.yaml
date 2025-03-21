@@ -1,0 +1,23 @@
+# external-multinode.yaml cluster config file sets up ingress, cni, and controllers in an existing k8 cluster.
+# This spec instructs Metallb to use a docker network named docker0.
+# The "external" cluster lifecycle is not managed by the KNE deployment.
+cluster:
+  kind: External
+  spec:
+    network: bridge
+ingress:
+  kind: MetalLB
+  spec:
+    manifest: ../../manifests/metallb/manifest.yaml
+    ip_count: 200
+cni:
+  kind: Meshnet
+  spec:
+    manifest: ../../manifests/meshnet/grpc/manifest.yaml
+controllers:
+  - kind: SRLinux
+    spec:
+      operator: ../../manifests/controllers/srlinux/manifest.yaml
+  - kind: CEOSLab
+    spec:
+      operator: ../../manifests/controllers/ceoslab/manifest.yaml
